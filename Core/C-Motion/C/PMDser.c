@@ -265,8 +265,8 @@ PMDresult PMDSerial_Init()
     // TODO: Need separate mutexes for each serial port for efficiency.
     if (xMutexSerial == NULL)
       xMutexSerial = PMDMutexCreate();
-    if (xMutexSerial == NULL)
-      return PMD_ERR_Memory;
+  //  if (xMutexSerial == NULL)
+    //  return PMD_ERR_Memory;
 
     return PMD_NOERROR;
 }
