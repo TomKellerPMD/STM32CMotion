@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2024 STMicroelectronics.
+  * Copyright (c) 2025 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -50,7 +50,7 @@ extern "C" {
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
-static void Error_Handler(void);
+void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 
@@ -78,14 +78,6 @@ static void Error_Handler(void);
 
 /* USER CODE END Private defines */
 
-//#include "stm32h7xx_hal.h"
-//#include "stm32h7xx_nucleo.h"
-
-/* Exported types ------------------------------------------------------------*/
-/* Exported constants --------------------------------------------------------*/
-/* User can use this section to tailor USARTx/UARTx instance used and associated
-   resources */
-/* Definition for USARTx clock resources */
 #define USARTx                           USART6
 #define USARTx_CLK_ENABLE()              __HAL_RCC_USART6_CLK_ENABLE()
 #define USARTx_RX_GPIO_CLK_ENABLE()      __HAL_RCC_GPIOC_CLK_ENABLE()
@@ -110,6 +102,7 @@ static void Error_Handler(void);
 /* Exported macro ------------------------------------------------------------*/
 #define COUNTOF(__BUFFER__)   (sizeof(__BUFFER__) / sizeof(*(__BUFFER__)))
 /* Exported functions ------------------------------------------------------- */
+
 
 #ifdef __cplusplus
 }

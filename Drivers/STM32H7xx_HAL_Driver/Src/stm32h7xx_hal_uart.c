@@ -1210,7 +1210,6 @@ HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, ui
   uint16_t *pdata16bits;
   uint16_t uhMask;
   uint32_t tickstart;
-  HAL_StatusTypeDef result;
 
   /* Check that a Rx process is not already ongoing */
   if (huart->RxState == HAL_UART_STATE_READY)
@@ -1249,11 +1248,11 @@ HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, ui
     /* as long as data have to be received */
     while (huart->RxXferCount > 0U)
     {
-      result=UART_WaitOnFlagUntilTimeout(huart, UART_FLAG_RXNE, RESET, tickstart, Timeout);
-      if (result != HAL_OK)
+      if (UART_WaitOnFlagUntilTimeout(huart, UART_FLAG_RXNE, RESET, tickstart, Timeout) != HAL_OK)
       {
         huart->RxState = HAL_UART_STATE_READY;
-        return result;
+
+        return HAL_TIMEOUT;
       }
       if (pdata8bits == NULL)
       {

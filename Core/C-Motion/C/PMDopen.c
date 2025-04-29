@@ -41,11 +41,7 @@ PMDCFunc PMDDeviceOpenPeriphSPI(PMDPeriphHandle* hPeriph, PMDDeviceHandle *hDevi
 {
     PMDZeroMemory(hPeriph, sizeof(PMDPeriphHandle));
     if (hDevice == NULL)
-#ifdef USE_SPI_INTERFACE
         return PMDPSPI_Open(hPeriph, port, chipselect, mode, datasize, bitrate);
-#else
-		return PMD_ERR_NotSupported;
-#endif
     else
         return PMDRPSPI_Open(hPeriph, hDevice, port, chipselect, mode, datasize, bitrate);
 }

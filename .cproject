@@ -88,11 +88,8 @@
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec.1843658847" name="MCU Output Converter Motorola S-rec with symbols" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec"/>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1186539285.812210563" name="PMDser.c" rcbsApplicability="disable" resourcePath="Core/C-Motion/C/PMDser.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1631427810.1405090365">
-						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1631427810.1405090365" name="MCU/MPU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.1631427810"/>
-					</fileInfo>
 					<sourceEntries>
-						<entry excluding="Src/mainTest.c|Src/mainold.c|C-Motion/C/PMDNVRAMcommands.cpp|C-Motion/C/NVRAMConfigData.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
+						<entry excluding="Src/mainJuno.c|Src/stm32h7xx_hal_mspUART.c|Src/stm32h7xx_hal_mspSPI.c|Src/mainTestNew.c|Src/stm32h7xx_hal_mspBack.c|Src/mainTest.c|C-Motion/C/PMDPspi.c|Src/main2.c|Src/mainBack.c|Src/main1.c|C-Motion/C/PMDspi.c|Src/mainold.c|C-Motion/C/PMDNVRAMcommands.cpp|C-Motion/C/NVRAMConfigData.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
 					</sourceEntries>
 				</configuration>
@@ -180,7 +177,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="Src/stm32h7xx_hal_msp.c|Src/mainold.c|C-Motion/C/PMDNVRAMcommands.cpp|C-Motion/C/NVRAMConfigData.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
+						<entry excluding="Src/mainJuno.c|C-Motion/C/PMDPspi.c|C-Motion/C/PMDspi.c|Src/stm32h7xx_hal_msp.c|Src/mainold.c|C-Motion/C/PMDNVRAMcommands.cpp|C-Motion/C/NVRAMConfigData.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
 					</sourceEntries>
 				</configuration>

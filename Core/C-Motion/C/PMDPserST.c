@@ -48,10 +48,10 @@ void FormatGetLastError()
 //********************************************************
 static PMDresult PMDPCOM_Close(PMDPeriphHandle* hPeriph)
 {
-    if ( hPeriph->handle != INVALID_HANDLE_VALUE )
+    if ( hPeriph->handle != (void *)INVALID_HANDLE_VALUE )
     {
        // CloseHandle( hPeriph->handle );
-        hPeriph->handle = INVALID_HANDLE_VALUE;
+        hPeriph->handle = (void *)INVALID_HANDLE_VALUE;
     }
     return PMD_ERR_OK;
 }
@@ -210,9 +210,7 @@ DWORD ErrorCode;
 
 }
 
-//********************************************************
-//Set portnum as PMDSerialPort  (0 = COM1, 1 = COM2, etc.)
-//********************************************************
+// Open Serial comm port
 PMDresult PMDPCOM_Open(PMDPeriphHandle* hPeriph, PMDparam portnum, PMDparam baud, PMDSerialParity parity, PMDSerialStopBits stopbits)
 {
 
@@ -221,11 +219,11 @@ PMDresult PMDPCOM_Open(PMDPeriphHandle* hPeriph, PMDparam portnum, PMDparam baud
 
 	PMDPCOM_Init(hPeriph);
     hPeriph->handle=UartHandleptr;
-    UartHandleptr->Instance = portnum;
+    UartHandleptr->Instance = (USART_TypeDef *) portnum;
 
-    if( hPeriph->handle == INVALID_HANDLE_VALUE )
+    if( hPeriph->handle == (void *) INVALID_HANDLE_VALUE )
     {
- //       ReportError();
+
         return PMD_ERR_OpeningPort;
     }
     if (PMD_ERR_OK != PMDPCOM_SetConfig(hPeriph, baud, parity, stopbits))
@@ -236,21 +234,14 @@ PMDresult PMDPCOM_Open(PMDPeriphHandle* hPeriph, PMDparam portnum, PMDparam baud
 
 
 
-    //  if (PMDPCOM_SetTimeout(hPeriph, 100) != PMD_ERR_OK)
-  //  {
-  //      PMDPCOM_Close(hPeriph);
-  //     return PMD_ERR_ConfiguringPort;
-  //  }
-
-
     if(HAL_UART_DeInit(UartHandleptr) != HAL_OK)
-      {
+    {
         	return PMD_ERR_ConfiguringPort;
-      }
-      if(HAL_UART_Init(UartHandleptr) != HAL_OK)
-      {
+    }
+    if(HAL_UART_Init(UartHandleptr) != HAL_OK)
+    {
           return PMD_ERR_ConfiguringPort;
-      }
+    }
 
 
     return PMD_ERR_OK;
